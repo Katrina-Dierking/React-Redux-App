@@ -5,13 +5,13 @@ import {createStore, applyMiddleware } from 'redux';
 import {Provider} from 'react-redux';
 import thunk from "redux-thunk";
 
-import  jokeReducer  from './reducers/jokeReducer';
+import  numberReducer  from './reducers/numberReducer';
 import App from './App';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 
 
-const store = createStore(jokeReducer, applyMiddleware(thunk));
+const store = createStore(numberReducer, applyMiddleware(thunk));
 
 
 

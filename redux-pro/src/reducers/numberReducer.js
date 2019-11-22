@@ -1,32 +1,35 @@
 import {
-    DAD_JOKE_LOADING,
-    DAD_JOKE_LOAD_SUCCESS,
-    DAD_JOKE_LOAD_FAILURE
+    NUMBER_FACTS_LOADING,
+    NUMBER_FACTS_LOAD_SUCCESS,
+    NUMBER_FACTS_LOAD_FAILURE
 } from '../actions';
 
 const initialState = {
     isLoading: false,
     error: '',
-    goodOne: {name:'Dad', joke: ''}
+    number:{
+        text: '',
+        date: ''
+    }
 };
 
-const jokeReducer = (state = initialState, action) => {
+const numberReducer = (state = initialState, action) => {
     switch (action.type) {
 
-        case  DAD_JOKE_LOADING: 
+        case NUMBER_FACTS_LOADING: 
             return {
             ...state, 
-            isLoading: true
+            isLoading: false
         };
 
-        case DAD_JOKE_LOAD_SUCCESS:
+        case NUMBER_FACTS_LOAD_SUCCESS:
             return {
                 ...state,
-                goodOne: { ...state.goodOne, joke: action.payload },
+                number: { ...state.number, text: action.payload },
                 isLoading: false
             };
 
-        case DAD_JOKE_LOAD_FAILURE: 
+        case NUMBER_FACTS_LOAD_FAILURE: 
             return {
             ...state, 
             error: action.payload,
@@ -38,4 +41,4 @@ const jokeReducer = (state = initialState, action) => {
     }
 };
 
-export default jokeReducer;
+export default numberReducer;

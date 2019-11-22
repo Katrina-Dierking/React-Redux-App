@@ -1,25 +1,26 @@
 import axios from 'axios';
 
-export const DAD_JOKE_LOADING = 'DAD_JOKE_LOADING';
-export const DAD_JOKE_LOAD_SUCCESS = 'DAD_JOKE_LOAD_SUCCESS';
-export const DAD_JOKE_LOAD_FAILURE = 'DAD_JOKE_LOAD_FAILURE';
+export const NUMBER_FACTS_LOADING = 'NUMBER_FACTS_LOADING';
+export const NUMBER_FACTS_LOAD_SUCCESS = 'NUMBER_FACTS_LOAD_SUCCESS';
+export const NUMBER_FACTS_LOAD_FAILURE = 'NUMBER_FACTS_LOAD_FAILURE';
 
-export const getDadJokes = () => dispatch => {
-    dispatch ({ type: DAD_JOKE_LOADING});
-
+export const getNumberFacts = () => dispatch => {
+    dispatch ({ type: NUMBER_FACTS_LOADING});
+    console.log('world')
     axios
-    .get("https://icanhazdadjoke.com/api/random")
-    .then (res =>
+    .get("http://numbersapi.com/42")
+    .then (res => {
+        console.log('res', res)
         dispatch({
-            type: DAD_JOKE_LOAD_SUCCESS,
-            payload: res.data.value
-        })
+            type: NUMBER_FACTS_LOAD_SUCCESS,
+            payload: res.data
+        })}
     )
     .catch (err => {
         console.log(err);
         dispatch({
-            type: DAD_JOKE_LOAD_FAILURE,
-            payload: "error loading joke"
+            type: NUMBER_FACTS_LOAD_FAILURE,
+            payload: "...oooh no!!! We're having trouble loading the facts. Stand by ... "
         });
     });
 };
