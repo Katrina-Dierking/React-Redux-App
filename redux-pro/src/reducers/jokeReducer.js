@@ -7,13 +7,35 @@ import {
 const initialState = {
     isLoading: false,
     error: '',
-    joke: {id: 'Dad', joke: ''}
+    goodOne: {id: '', joke: ''}
 };
 
-const reducer = {state = initialState, action} => {
+const jokeReducer = (state = initialState, action) => {
     switch (action.type) {
+
+        case  DAD_JOKE_LOADING: 
+            return {
+            ...state, 
+            isLoading: true
+        };
+
+        case DAD_JOKE_LOAD_SUCCESS:
+            return {
+                ...state,
+                goodOne: { ...state.goodOne, joke: action.payload },
+                isLoading: false
+            };
+
+        case DAD_JOKE_LOAD_FAILURE: 
+            return {
+            ...state, 
+            error: action.payload,
+            isLoading:false
+        };
 
         default: 
         return state;
     }
-}
+};
+
+export default jokeReducer;

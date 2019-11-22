@@ -4,7 +4,7 @@ export const DAD_JOKE_LOADING = 'DAD_JOKE_LOADING';
 export const DAD_JOKE_LOAD_SUCCESS = 'DAD_JOKE_LOAD_SUCCESS';
 export const DAD_JOKE_LOAD_FAILURE = 'DAD_JOKE_LOAD_FAILURE';
 
-export const getTriviaQuestions = () => dispatch => {
+export const getDadJokes = () => dispatch => {
     dispatch ({ type: DAD_JOKE_LOADING});
 
     axios
