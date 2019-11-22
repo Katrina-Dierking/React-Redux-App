@@ -17,7 +17,7 @@ const DadJokes = props => {
             <div>loading joke ... </div>
         ):(
             <>
-            <div>New Joke: {props.goodOne.id}</div>
+            <div>{props.goodOne.id}</div>
             <div>{props.goodOne.joke}</div>
             </>
         )}

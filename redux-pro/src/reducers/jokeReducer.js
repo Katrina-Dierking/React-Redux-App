@@ -7,7 +7,7 @@ import {
 const initialState = {
     isLoading: false,
     error: '',
-    goodOne: {id: '', joke: ''}
+    goodOne: {name:'Dad', joke: ''}
 };
 
 const jokeReducer = (state = initialState, action) => {

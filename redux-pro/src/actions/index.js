@@ -8,7 +8,7 @@ export const getDadJokes = () => dispatch => {
     dispatch ({ type: DAD_JOKE_LOADING});
 
     axios
-    .get("https://github.com/public-apis/public-apis")
+    .get("https://icanhazdadjoke.com/api/random")
     .then (res =>
         dispatch({
             type: DAD_JOKE_LOAD_SUCCESS,
