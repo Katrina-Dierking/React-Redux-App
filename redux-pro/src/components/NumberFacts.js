@@ -13,6 +13,7 @@ const Container = styled.div`
     border: .5px solid black;
     border-radius: 10px;
     margin-bottom: 7%;
+    margin-Left: 20%;
     background: slategray;
     box-shadow: 5px 5px 5px black;
     `
@@ -21,20 +22,19 @@ const NumberFacts = props => {
 
     return (
         <>
-        <button onClick = {() => {
-            console.log('hello');
+        <button className = "button" 
+            onClick = {() => {
             props.getNumberFacts();
         }}
-        >
-            The facts!! Just the facts!!
+        > Show me the facts!!
         </button>
         {props.error && <div>{props.error}</div>}
         {props.isLoading ? (
-            <div>Loading facinating number facts ... </div>
+            <div>Loading fascinating number facts ... </div>
         ):(
             <>
             <br></br>
-            <div>COOL NEW NUMBER FACT:</div>
+            <div>All ABOUT THE #42:</div>
             <br></br>
             <Container className= "fact-box">
                 {props.number.text}
